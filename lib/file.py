@@ -18,15 +18,12 @@ class file:
     文件及目录操作类，封装了文件及目录操作的常用方法
     实现了上下文管理器支持，可以自动关闭文件
     """
-    def __init__(self, name, mode) -> None:
+    name:str = 'NONE.TXT'
+    mode:str = 'r'
+
+    def __init__(self, name:str = name, mode:str = mode) -> None:
         self.name = name
         self.mode = mode
-        try:
-            if not os.path.exists(self.name) and 'r' in self.mode:
-                raise FileNotFoundError(f"The file or directory '{self.name}' does not exist.")
-            self.file = open(name, mode)
-        except Exception as e:
-            print(f"Error opening file: {e}")
  
     def __enter__(self):
         """
@@ -207,6 +204,22 @@ class file:
             print(f"Error unzipping '{self.name}': {e}")
             return None
  
+    def get_log_file(self, log_name) -> str or None:
+        """
+        获取日志文件名
+        :log_name: 日志文件名
+        :return: 日志文件名
+        """
+        try:
+            log_file = os.path.join(self.name, log_name)
+            if not os.path.exists(log_file):
+                with open(log_file, 'w') as f:
+                    f.write('')
+            return log_file
+        except Exception as e:
+            print(f"Error getting log file: {e}")
+            return None
+
  
 # 测试单元
 def main():

@@ -10,6 +10,8 @@ MERCHANTABILITY OR FIT FOR A PARTICULAR PURPOSE.
 See the Mulan PSL v2 for more details.
 """
 
+import lib.log as log
+
 class lib:
     """
     PYPI镜像源
@@ -40,6 +42,7 @@ class lib:
             __import__(f'{lib}')
             return True
         except ImportError:
+            log.log(f"{lib} not found in {self.site}",False,True)
             return False
 
     def install(self,*args) -> str:

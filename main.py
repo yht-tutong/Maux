@@ -30,5 +30,17 @@ def main() -> None:
         boot.boot().run()
     return None
 
+# lib模块测试
+def test_lib() -> None:
+    import lib.log as log
+
+    # lib.log模块测试
+    log.log(f'APP').error('This is an error message')
+    log.log(f'APP').info('This is an info message')
+    log.log(f'APP').debug('This is a debug message')
+    log.log(f'APP').warning('This is a warning message')
+
+    return None
+
 if __name__ == '__main__':
-    main()
+    test_lib()
