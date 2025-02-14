@@ -1,7 +1,6 @@
 内部开发文件/
 __pycache__/
 __pycache__
-*.pyc
 *.gitignore
 *.md
 *.txt
