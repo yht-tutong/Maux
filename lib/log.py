@@ -64,7 +64,7 @@ class log:
         
         # 输出到控制台
         if self.console:
-            print(f"{log.level_color[level]}{level}/{module} - {message}\033[0m")
+            print(f"{log.level_color[level]}{level}/{module} - {message}")
 
     def error(self, message, module="App"):
         """
