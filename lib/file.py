@@ -49,6 +49,7 @@ class file:
         except Exception as e:
             print(f"Error creating file: {e}")
             return False
+        
     def read(self, size=None) -> str:
         """
         读取文件内容
@@ -185,7 +186,7 @@ class file:
     def zip(self, new_name) -> str or None:
         """
         压缩文件或目录
-        :new_name: 压缩后的文件名（不包括“.zip”）
+        :new_name: 压缩后的文件名（不包括“.zip”)
         """
         try:
             return shutil.make_archive(new_name, "zip", self.name)
