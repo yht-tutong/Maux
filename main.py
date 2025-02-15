@@ -44,3 +44,4 @@ def test_lib() -> None:
 
 if __name__ == '__main__':
     test_lib()
+    main()
